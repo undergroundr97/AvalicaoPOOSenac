@@ -18,13 +18,16 @@ public class Main {
 					Unidade unidade1 = new Unidade(1);
 					Unidade unidade2 = new Unidade(2);
 					System.out.println("Criando quatro livros");
-					Item livro1 = new Item();
+					Item livro1 = new Livro();
 					Item livro2 = new Revista();
 					Item livro3 = new HQ();
 					Item livro4 = new Livro();
 					System.out.println("Criando dois leitores");
 					Leitor leitor1 = new LeitorComum();
 					Leitor leitor2 = new LeitorPremium();
+				}
+				case 2 ->{
+
 				}
 			}
 		} while (opcaoCliente != 0);
