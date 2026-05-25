@@ -1,4 +1,13 @@
 package org.example;
 
-public class Revista {
+import java.time.LocalDate;
+
+public class Revista extends Item{
+    private int prazoDeEntrega=7;
+    public int getPrazoDeEntrega() {
+        return prazoDeEntrega;
+    }
+    public Revista(String titulo, String codUnico, LocalDate dataPublicacao, Unidade unidadeOrigem, FaixaEtaria faixaEtaria) {
+        super(titulo, codUnico, dataPublicacao, unidadeOrigem, faixaEtaria);
+    }
 }
