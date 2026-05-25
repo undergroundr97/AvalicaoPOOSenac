@@ -5,14 +5,14 @@ import java.time.temporal.ChronoUnit;
 
 public class Emprestimo {
     private Leitor leitor;
-    private Livro livro;
+    private Item item;
     private LocalDate dataEmprestimo;
     private LocalDate prazoEntrega;
     private LocalDate dataDevolucaoReal;
 
     public Emprestimo(Leitor leitor, Livro livro) {
         this.leitor = leitor;
-        this.livro = livro;
+        this.item = livro;
         this.dataEmprestimo = LocalDate.now();
 
         this.prazoEntrega = prazoEntrega();
@@ -43,7 +43,7 @@ public class Emprestimo {
 
     public void finalizarEmprestimo() {
         this.dataDevolucaoReal = LocalDate.now();
-        this.livro.setDisponivel(true);
+        this.item.setDisponivel(true);
         double valorMulta = calcularMulta();
         if (valorMulta == 0) {
             System.out.println("Livro devolvido no prazo. Sem multa.");
@@ -53,5 +53,5 @@ public class Emprestimo {
     }
 
     public Leitor getLeitor() { return leitor; }
-    public Livro getLivro() { return livro; }
+    public Livro getItem() { return item; }
 }
