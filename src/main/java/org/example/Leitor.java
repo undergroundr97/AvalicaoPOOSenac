@@ -9,14 +9,16 @@ public abstract class Leitor {
     private String nome;
     private int idade;
 
-    private ArrayList <Item> itensEmPosse;
+    private ArrayList <Item> itensEmPosse=  itensEmPosse = new ArrayList<>();
 
-    public Leitor (int idade) {
+    public Leitor (String nome, int idade) {
         this.idade = idade;
-        itensEmPosse = new ArrayList<>();
     }
-    
-    
 
+    public abstract void adicionarLivro(Livro livro);
+
+    public ArrayList<Item> getItensEmPosse() {
+        return itensEmPosse;
+    }
 }
 
