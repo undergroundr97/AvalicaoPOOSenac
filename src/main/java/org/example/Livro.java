@@ -3,7 +3,7 @@ package org.example;
 import java.time.LocalDate;
 
 public class Livro extends Item{
-    int prazoDeEntrega=14;
+    private final int prazoDeEntrega=14;
     @Override
     public int getPrazoDeEntrega() {
         return prazoDeEntrega;

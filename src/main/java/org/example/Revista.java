@@ -3,7 +3,7 @@ package org.example;
 import java.time.LocalDate;
 
 public class Revista extends Item{
-    private int prazoDeEntrega=7;
+    private final int prazoDeEntrega=7;
     public int getPrazoDeEntrega() {
         return prazoDeEntrega;
     }

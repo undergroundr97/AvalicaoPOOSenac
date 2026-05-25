@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public abstract class Item {
     private String titulo;
-    private String codUnico;
+    private final String codUnico;
     private LocalDate dataPublicacao;
     private Unidade unidadeOrigem;
     private FaixaEtaria faixaEtaria;
@@ -17,6 +17,7 @@ public abstract class Item {
         this.unidadeOrigem = unidadeOrigem;
         this.faixaEtaria = faixaEtaria;
     }
+
 
     public String getTitulo() {
         return titulo;
