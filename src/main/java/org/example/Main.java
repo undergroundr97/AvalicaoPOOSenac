@@ -1,17 +1,45 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
 	static void main() {
-		//TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-		// to see how IntelliJ IDEA suggests fixing it.
-		IO.println(String.format("Hello and welcome!"));
 
-		for (int i = 1; i <= 5; i++) {
-			//TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-			// for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-			IO.println("i = " + i);
-		}
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Bem vindo ao leitor livre!");
+
+		menuTeste();
+		System.out.println("Digite uma opcao: ");
+		int opcaoCliente = scanner.nextInt();
+		do {
+			switch (opcaoCliente) {
+				case 1 -> {
+					System.out.println("Criando duas unidades");
+					Unidade unidade1 = new Unidade(1);
+					Unidade unidade2 = new Unidade(2);
+					System.out.println("Criando quatro livros");
+					Item livro1 = new Livro();
+					Item livro2 = new Revista();
+					Item livro3 = new HQ();
+					Item livro4 = new Livro();
+					System.out.println("Criando dois leitores");
+					Leitor leitor1 = new LeitorComum();
+					Leitor leitor2 = new LeitorPremium();
+				}
+				case 2 ->{
+
+				}
+			}
+		} while (opcaoCliente != 0);
 	}
+
+			static void menuTeste () {
+				System.out.println("CENARIO A - CADASTRAR E EMPRESTIMO SIMPLES");
+				System.out.println("CENARIO B - LIMITE EMRESTIMO ATINGIDO");
+				System.out.println("CENARIO C - PRAZO DIFERENCIADO PARA PREMIUM");
+				System.out.println("CENARIO D - RESTRICAO FAIXA ETARIA");
+				System.out.println("CENARIO E - DEVOLUCAO COM ATRASO");
+				System.out.println("CENARIO F - RENOVACAO");
+				System.out.println("CENARIO G - EXTRATO EMPRESTIMO");
+			}
 }

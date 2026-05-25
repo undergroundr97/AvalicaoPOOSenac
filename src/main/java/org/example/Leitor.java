@@ -9,15 +9,16 @@ public abstract class Leitor {
 
     private ArrayList <Item> itensEmPosse;
 
-    public Leitor (int idade) {
+    public Leitor (String nome, int idade) {
         this.idade = idade;
+        this.nome = nome;
 
         itensEmPosse = new ArrayList<>();
     }
     public abstract LocalDate calcularPrazoEntrega();
             public void exibirExtratoLeitor {
         System.out.println("Itens Emprestados: ");
-        
+
     }
 
 
