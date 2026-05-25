@@ -7,7 +7,7 @@ public class Emprestimo {
     private Leitor leitor;
     private Livro livro;
     private LocalDate dataEmprestimo;
-    private LocalDate dataDevolucaoPrevista;
+    private LocalDate prazoEntrega;
     private LocalDate dataDevolucaoReal;
 
     public Emprestimo(Leitor leitor, Livro livro) {
@@ -15,14 +15,15 @@ public class Emprestimo {
         this.livro = livro;
         this.dataEmprestimo = LocalDate.now();
 
-        this.dataDevolucaoPrevista = dataEmprestimo.plusDays(7);
+        this.prazoEntrega = prazoEntrega();
+        this.dataDevolucaoReal = null;
     }
 
     public double calcularMulta() {
-        if (dataDevolucaoReal == null || !dataDevolucaoReal.isAfter(dataDevolucaoPrevista)) {
+        if (dataDevolucaoReal == null || !dataDevolucaoReal.isAfter(prazoEntrega)) {
             return 0.0;
         }
-        long diasAtraso = ChronoUnit.DAYS.between(dataDevolucaoPrevista, dataDevolucaoReal);
+        long diasAtraso = ChronoUnit.DAYS.between(prazoEntrega, dataDevolucaoReal);
         return diasAtraso + 1.5;
     }
 
