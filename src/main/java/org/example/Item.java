@@ -9,15 +9,33 @@ public abstract class Item {
     private Unidade unidadeOrigem;
     private FaixaEtaria faixaEtaria;
     private int prazoDeEntrega;
-
-    public Item(String titulo, String codUnico, LocalDate dataPublicacao, Unidade unidadeOrigem, FaixaEtaria faixaEtaria, int prazoDeEntrega) {
+    public Item(String titulo, String codUnico, LocalDate dataPublicacao, Unidade unidadeOrigem, FaixaEtaria faixaEtaria) {
         this.titulo = titulo;
         this.codUnico = codUnico;
         this.dataPublicacao = dataPublicacao;
         this.unidadeOrigem = unidadeOrigem;
         this.faixaEtaria = faixaEtaria;
-        this.prazoDeEntrega=prazoDeEntrega;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
 
+    public abstract int getPrazoDeEntrega();
+
+    public FaixaEtaria getFaixaEtaria() {
+        return faixaEtaria;
+    }
+
+    public Unidade getUnidadeOrigem() {
+        return unidadeOrigem;
+    }
+
+    public LocalDate getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public String getCodUnico() {
+        return codUnico;
+    }
 }
