@@ -6,4 +6,10 @@ public abstract class Leitor {
 
     private ArrayList <Item> itensEmPosse;
 
+    public Leitor (int idade) {
+        this.idade = idade;
+
+
+
+    }
 }
