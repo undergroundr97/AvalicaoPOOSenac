@@ -15,7 +15,7 @@ public abstract class Leitor {
         this.idade = idade;
     }
 
-    public abstract void adicionarLivro(Livro livro);
+    public abstract void adicionarLivro(Item livro);
 
     public ArrayList<Item> getItensEmPosse() {
         return itensEmPosse;
