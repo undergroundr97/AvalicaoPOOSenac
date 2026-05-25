@@ -8,8 +8,4 @@ public class Livro extends Item{
         super(titulo, codUnico, dataPublicacao, unidadeOrigem, faixaEtaria, prazoDeEntrega);
     }
 
-
-
-
-
 }
