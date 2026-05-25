@@ -9,7 +9,7 @@ public abstract class Leitor {
     public Leitor (int idade) {
         this.idade = idade;
 
-
-
     }
+
+
 }
