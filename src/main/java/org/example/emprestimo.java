@@ -23,7 +23,7 @@ public class Emprestimo {
             return 0.0;
         }
         long diasAtraso = ChronoUnit.DAYS.between(dataDevolucaoPrevista, dataDevolucaoReal);
-        return diasAtraso * 2.0;
+        return diasAtraso + 1.5;
     }
 
     public void finalizarEmprestimo(){
