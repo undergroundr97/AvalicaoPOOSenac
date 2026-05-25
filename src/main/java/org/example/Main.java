@@ -26,36 +26,17 @@ public class Main {
 					Leitor leitor1 = new LeitorComum();
 					Leitor leitor2 = new LeitorPremium();
 				}
-				case 2 -> {
-
-				}
-				case 3 -> {
-
-				}
-				case 4 -> {
-
-				}
-				 case 5 -> {
-
-				 }
-				 case 6 -> {
-
-				 }
-				 case 7 -> {
-
-				 }
 			}
-		}
-
+		} while (opcaoCliente != 0);
 	}
 
-	static void menuTeste(){
-		System.out.println("CENARIO A - CADASTRAR E EMPRESTIMO SIMPLES");
-		System.out.println("CENARIO B - LIMITE EMRESTIMO ATINGIDO");
-		System.out.println("CENARIO C - PRAZO DIFERENCIADO PARA PREMIUM");
-		System.out.println("CENARIO D - RESTRICAO FAIXA ETARIA");
-		System.out.println("CENARIO E - DEVOLUCAO COM ATRASO");
-		System.out.println("CENARIO F - RENOVACAO");
-		System.out.println("CENARIO G - EXTRATO EMPRESTIMO");
-	}
+			static void menuTeste () {
+				System.out.println("CENARIO A - CADASTRAR E EMPRESTIMO SIMPLES");
+				System.out.println("CENARIO B - LIMITE EMRESTIMO ATINGIDO");
+				System.out.println("CENARIO C - PRAZO DIFERENCIADO PARA PREMIUM");
+				System.out.println("CENARIO D - RESTRICAO FAIXA ETARIA");
+				System.out.println("CENARIO E - DEVOLUCAO COM ATRASO");
+				System.out.println("CENARIO F - RENOVACAO");
+				System.out.println("CENARIO G - EXTRATO EMPRESTIMO");
+			}
 }
