@@ -35,12 +35,12 @@ public class Main {
 	}
 
 			static void menuTeste () {
-				System.out.println("CENARIO A - CADASTRAR E EMPRESTIMO SIMPLES");
-				System.out.println("CENARIO B - LIMITE EMRESTIMO ATINGIDO");
-				System.out.println("CENARIO C - PRAZO DIFERENCIADO PARA PREMIUM");
-				System.out.println("CENARIO D - RESTRICAO FAIXA ETARIA");
-				System.out.println("CENARIO E - DEVOLUCAO COM ATRASO");
-				System.out.println("CENARIO F - RENOVACAO");
-				System.out.println("CENARIO G - EXTRATO EMPRESTIMO");
+				System.out.println("CENARIO 1 - CADASTRAR E EMPRESTIMO SIMPLES");
+				System.out.println("CENARIO 2 - LIMITE EMRESTIMO ATINGIDO");
+				System.out.println("CENARIO 3 - PRAZO DIFERENCIADO PARA PREMIUM");
+				System.out.println("CENARIO 4 - RESTRICAO FAIXA ETARIA");
+				System.out.println("CENARIO 5 - DEVOLUCAO COM ATRASO");
+				System.out.println("CENARIO 6 - RENOVACAO");
+				System.out.println("CENARIO 7 - EXTRATO EMPRESTIMO");
 			}
 }

@@ -9,6 +9,7 @@ public abstract class Item {
     private Unidade unidadeOrigem;
     private FaixaEtaria faixaEtaria;
     private int prazoDeEntrega;
+
     public Item(String titulo, String codUnico, LocalDate dataPublicacao, Unidade unidadeOrigem, FaixaEtaria faixaEtaria) {
         this.titulo = titulo;
         this.codUnico = codUnico;

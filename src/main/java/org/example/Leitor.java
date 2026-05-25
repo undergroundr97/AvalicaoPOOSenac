@@ -1,5 +1,8 @@
 package org.example;
 
+
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 
 public abstract class Leitor {
@@ -10,8 +13,10 @@ public abstract class Leitor {
 
     public Leitor (int idade) {
         this.idade = idade;
-
+        itensEmPosse = new ArrayList<>();
     }
-
+    
+    
 
 }
+
