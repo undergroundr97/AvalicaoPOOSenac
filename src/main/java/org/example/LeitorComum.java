@@ -1,8 +1,21 @@
 package org.example;
 
+import java.time.LocalDate;
+
 public class LeitorComum extends Leitor {
 
-    public LeitorComum(int idade) {
-        super(idade);
+    public LeitorComum(String nome, int idade) {
+        super(nome, idade);
     }
+
+    @Override
+    public void adicionarLivro(Livro livro) {
+        if(getitensEmPosse().size() < 3) {
+            getItensEmPosse().add(livro);
+        } else {
+            System.out.println("Não e possivel alugar um novo livro");
+        }
+    }
+
+
 }

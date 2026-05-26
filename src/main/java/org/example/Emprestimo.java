@@ -27,12 +27,25 @@ public class Emprestimo {
         return diasAtraso + 1.5;
     }
 
+    public void renovarEmprestimo(LocalDate novoPrazo) {
+        if (dataDevolucaoReal != null) {
+            System.out.println("Erro: Livro já devolvido.");
+            return;
+        }
+
+        if (LocalDate.now().isAfter(this.prazoEntrega)) {
+            System.out.println("Erro: Nao é possivel renovar um livro em atraso.");
+            return;
+        }
+        this.prazoEntrega = novoPrazo;
+        System.out.println("Renovado com sucesso!");
+    }
+
     public void finalizarEmprestimo(){
         this.dataDevolucaoReal = LocalDate.now();
         this.livro.setDisponivel(true);
         System.out.println("Livro devolvido. Multa: R$ " + calcularMulta());
     }
-
 
     public Leitor getLeitor() { return leitor; }
     public Livro getLivro() { return livro; }
