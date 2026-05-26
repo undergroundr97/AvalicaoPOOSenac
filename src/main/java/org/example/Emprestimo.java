@@ -20,7 +20,7 @@ public class Emprestimo {
         this.dataDevolucaoReal = null;
     }
 
-    private LocalDate calcularPrazoInicial() {
+    public LocalDate calcularPrazoInicial() {
         if (leitor instanceof LeitorPremium) {
             return dataEmprestimo.plusDays(item.getPrazoDeEntrega() + (item.getPrazoDeEntrega() / 2));
         } else {

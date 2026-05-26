@@ -14,6 +14,7 @@ public abstract class Leitor {
 
     public Leitor (String nome, int idade) {
         this.idade = idade;
+        setFaixaEtaria();
     }
 
     public abstract void adicionarLivro(Item livro);
@@ -22,8 +23,16 @@ public abstract class Leitor {
         return itensEmPosse;
     }
 
-    public void setFaixaEtaria(FaixaEtaria faixaEtaria) {
-
+    public void setFaixaEtaria() {
+        if(idade < 11){
+            faixaEtaria = FaixaEtaria.INFANTIL;
+        } else if (idade >= 12 && idade <= 17) {
+            faixaEtaria = FaixaEtaria.JUVENIL;
+        } else if (idade >= 18) {
+            faixaEtaria = FaixaEtaria.ADULTO;
+        } else {
+            faixaEtaria = FaixaEtaria.LIVRE;
+        }
     }
 }
 
