@@ -1,8 +1,11 @@
-package org.example;
+package org.example.Items;
+
+import org.example.Enum.FaixaEtaria;
+import org.example.Unidade.Unidade;
 
 import java.time.LocalDate;
 
-public class Livro extends Item{
+public class Livro extends Item {
 
 	private final int prazoDeEntrega = 14;
 

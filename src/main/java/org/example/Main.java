@@ -1,16 +1,31 @@
 package org.example;
 
+import org.example.Emprestimo.Emprestimo;
+import org.example.Enum.FaixaEtaria;
+import org.example.InputValidator.InputValidator;
+import org.example.Items.HQ;
+import org.example.Items.Item;
+import org.example.Items.Livro;
+import org.example.Items.Revista;
+import org.example.Leitor.Leitor;
+import org.example.Leitor.LeitorComum;
+import org.example.Leitor.LeitorPremium;
+import org.example.Unidade.Unidade;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
+
+	static Scanner scanner = new Scanner(System.in);
+
 	static void main() {
 
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Bem vindo ao leitor livre!");
 		menuTeste();
 
 		System.out.println("Digite uma opcao: ");
+		InputValidator.intValidator(scanner);
 		int opcaoCliente = scanner.nextInt();
 		do {
 			switch (opcaoCliente) {
@@ -42,8 +57,7 @@ public class Main {
 					emprestimo2.imprimirExtratoEmprestimo();
 					imprimirSeparador();
 
-					menuTeste();
-					opcaoCliente = scanner.nextInt();
+					opcaoCliente = menuComInput(opcaoCliente);
 				}
 				case 2 ->{
 					Unidade unidade1 = new Unidade(2);
@@ -76,8 +90,7 @@ public class Main {
 					andrey.getItensEmPosse().forEach( item -> System.out.println(item.getTitulo()));
 					imprimirSeparador();
 
-					menuTeste();
-					opcaoCliente = scanner.nextInt();
+					opcaoCliente = menuComInput(opcaoCliente);
 				}
 				case 3 -> {
 					Unidade unidade1 = new Unidade(1);
@@ -99,8 +112,7 @@ public class Main {
 							", codigo: " + livro1.getCodUnico() + ", data estimada para entrega: "+emprestimo.calcularPrazoInicial().format(Emprestimo.formatter));
 					imprimirSeparador();
 
-					menuTeste();
-					opcaoCliente = scanner.nextInt();
+					opcaoCliente = menuComInput(opcaoCliente);
 				}
 				case 4 ->{
 					Unidade unidade1 = new Unidade(1);
@@ -124,8 +136,7 @@ public class Main {
 					Emprestimo emprestimo2 = new Emprestimo(leitorInfantil, livroAdulto);
 					imprimirSeparador();
 
-					menuTeste();
-					opcaoCliente = scanner.nextInt();
+					opcaoCliente = menuComInput(opcaoCliente);
 				}
 				case 5-> {
 					Unidade unidade1 = new Unidade(1);
@@ -151,8 +162,7 @@ public class Main {
 					imprimirSeparador();
 
 
-					menuTeste();
-					opcaoCliente = scanner.nextInt();
+					opcaoCliente = menuComInput(opcaoCliente);
 				}
 				case 6 ->{
 					Unidade unidade1 = new Unidade(1);
@@ -180,8 +190,7 @@ public class Main {
 					emprestimoHQLivre.renovarEmprestimo();
 					imprimirSeparador();
 
-					menuTeste();
-					opcaoCliente = scanner.nextInt();
+					opcaoCliente = menuComInput(opcaoCliente);
 				}
 				case 7 ->{
 					Unidade unidade1 = new Unidade(1);
@@ -209,27 +218,36 @@ public class Main {
 					emprestimo2.imprimirExtratoEmprestimo();
 					imprimirSeparador();
 
-					menuTeste();
-					opcaoCliente = scanner.nextInt();
+					opcaoCliente = menuComInput(opcaoCliente);
 				}
-
-
+				default -> {
+					System.out.println("Opcao não encontrada");
+					opcaoCliente = menuComInput(opcaoCliente);
+				}
 			}
 		} while (opcaoCliente != 0);
 	}
 
 	static void menuTeste() {
-		System.out.println("CENARIO 1 - CADASTRAR E EMPRESTIMO SIMPLES");
-		System.out.println("CENARIO 2 - LIMITE EMRESTIMO ATINGIDO");
-		System.out.println("CENARIO 3 - PRAZO DIFERENCIADO PARA PREMIUM");
-		System.out.println("CENARIO 4 - RESTRICAO FAIXA ETARIA");
-		System.out.println("CENARIO 5 - DEVOLUCAO COM ATRASO");
-		System.out.println("CENARIO 6 - RENOVACAO");
-		System.out.println("CENARIO 7 - EXTRATO EMPRESTIMO");
+		System.out.println("1 - CENARIO -> CADASTRAR E EMPRESTIMO SIMPLES");
+		System.out.println("2 - CENARIO -> LIMITE EMRESTIMO ATINGIDO");
+		System.out.println("3 - CENARIO -> PRAZO DIFERENCIADO PARA PREMIUM");
+		System.out.println("4 - CENARIO -> RESTRICAO FAIXA ETARIA");
+		System.out.println("5 - CENARIO -> DEVOLUCAO COM ATRASO");
+		System.out.println("6 - CENARIO -> RENOVACAO");
+		System.out.println("7 - CENARIO -> EXTRATO EMPRESTIMO");
+		System.out.println("0 - ENCERRAR PROGRAMA");
 	}
 
 	public static void imprimirSeparador(){
 		System.out.println("----------------------------------");
+	}
+
+	static Integer menuComInput(Integer opt){
+		menuTeste();
+		InputValidator.intValidator(scanner);
+		opt = scanner.nextInt();
+		return opt;
 	}
 
 }

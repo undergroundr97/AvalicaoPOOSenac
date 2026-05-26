@@ -1,4 +1,7 @@
-package org.example;
+package org.example.Leitor;
+
+import org.example.Enum.FaixaEtaria;
+import org.example.Items.Item;
 
 import java.util.ArrayList;
 

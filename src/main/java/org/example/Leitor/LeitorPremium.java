@@ -1,6 +1,6 @@
-package org.example;
+package org.example.Leitor;
 
-import java.time.LocalDate;
+import org.example.Items.Item;
 
 public class LeitorPremium extends Leitor {
 

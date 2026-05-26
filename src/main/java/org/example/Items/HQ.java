@@ -1,4 +1,7 @@
-package org.example;
+package org.example.Items;
+
+import org.example.Enum.FaixaEtaria;
+import org.example.Unidade.Unidade;
 
 import java.time.LocalDate;
 

@@ -1,13 +1,20 @@
-package org.example;
+package org.example.Emprestimo;
 
-import java.sql.SQLOutput;
+import org.example.Enum.EstadoEmprestimo;
+import org.example.Enum.FaixaEtaria;
+import org.example.Items.HQ;
+import org.example.Items.Item;
+import org.example.Items.Revista;
+import org.example.Leitor.Leitor;
+import org.example.Leitor.LeitorPremium;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Emprestimo {
 
-	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	private Leitor leitor;
 	private Item item;

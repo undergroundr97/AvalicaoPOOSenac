@@ -1,8 +1,11 @@
-package org.example;
+package org.example.Items;
+
+import org.example.Enum.FaixaEtaria;
+import org.example.Unidade.Unidade;
 
 import java.time.LocalDate;
 
-public class Revista extends Item{
+public class Revista extends Item {
 
 	private final int prazoDeEntrega = 7;
 
