@@ -10,11 +10,10 @@ public class Emprestimo {
     private LocalDate prazoEntrega;
     private LocalDate dataDevolucaoReal;
 
-    public Emprestimo(Leitor leitor, Livro livro) {
+    public Emprestimo(Leitor leitor, Item item) {
         this.leitor = leitor;
-        this.item = livro;
+        this.item = item;
         this.dataEmprestimo = LocalDate.now();
-
         this.prazoEntrega = prazoEntrega();
         this.dataDevolucaoReal = null;
     }
@@ -27,7 +26,7 @@ public class Emprestimo {
         return diasAtraso * 1.5;
     }
 
-    
+
     public void renovarEmprestimo(LocalDate novoPrazo) {
         if (dataDevolucaoReal != null) {
             System.out.println("Erro: Livro já devolvido.");
@@ -54,5 +53,5 @@ public class Emprestimo {
     }
 
     public Leitor getLeitor() { return leitor; }
-    public Livro getItem() { return item; }
+    public Item getItem() { return item; }
 }
