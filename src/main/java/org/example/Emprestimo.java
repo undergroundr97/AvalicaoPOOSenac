@@ -54,7 +54,9 @@ public class Emprestimo {
     public void setEstadoEmprestimo(){
         if(!(dataDevolucaoReal == null) && dataDevolucaoReal.isAfter(prazoEntrega)){
             estadoEmprestimo = EstadoEmprestimo.ATRASDO;
-        } else {
+        } else if(!renovado){
+			estadoEmprestimo = EstadoEmprestimo.PODERENOVAR;
+		} else {
 			estadoEmprestimo = EstadoEmprestimo.EMDIA;
 		}
     }
@@ -70,13 +72,13 @@ public class Emprestimo {
     }
 
     public void renovarEmprestimo() {
-        if(item instanceof HQ){
-            System.out.println("Nao e possivel renovar revista");
+        if(item instanceof HQ || item instanceof Revista){
+            System.out.println("Nao e possivel renovar HQ ou Revista!");
         } else if(isRenovado()) {
-            System.out.println("Item ja foi renovado!, nao e possivel renovar");
+            System.out.println("Item ja foi renovado! Nao e possivel renovar.");
         } else {
             renovado = true;
-            System.out.println("Item sera renovado para: " + prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega()));
+            System.out.println("Item sera renovado para: " + prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega()).format(formatter));
 			prazoEntrega = prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega());
         }
 
