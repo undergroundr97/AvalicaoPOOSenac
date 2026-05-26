@@ -57,8 +57,24 @@ public class Main {
 
 				}
 				case 3 -> {
+					Unidade unidade1 = new Unidade(1);
+					Leitor leitorPremium = new LeitorPremium("andrey", 30);
+					Leitor leitorComun = new LeitorPremium("luiz", 12);
+					Item livro1 = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
+							FaixaEtaria.LIVRE);
+
+					Emprestimo emprestimo = new Emprestimo(leitorComun, (Livro) livro1);
+
+					emprestimo.
+
 
 				}
+				case 4 ->{
+
+
+				}
+
+
 			}
 		} while (opcaoCliente != 0);
 	}

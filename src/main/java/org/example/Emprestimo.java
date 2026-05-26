@@ -44,7 +44,6 @@ public class Emprestimo {
 
     public void finalizarEmprestimo() {
         this.dataDevolucaoReal = LocalDate.now();
-        this.item.setDisponivel(true);
         double valorMulta = calcularMulta();
         if (valorMulta == 0) {
             System.out.println("Livro devolvido no prazo. Sem multa.");

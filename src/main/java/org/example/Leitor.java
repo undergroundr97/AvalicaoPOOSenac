@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public abstract class Leitor {
     private String nome;
     private int idade;
+    FaixaEtaria faixaEtaria;
 
     private ArrayList <Item> itensEmPosse=  itensEmPosse = new ArrayList<>();
 
@@ -19,6 +20,10 @@ public abstract class Leitor {
 
     public ArrayList<Item> getItensEmPosse() {
         return itensEmPosse;
+    }
+
+    public void setFaixaEtaria(FaixaEtaria faixaEtaria) {
+
     }
 }
 
