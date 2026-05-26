@@ -10,6 +10,7 @@ public class Emprestimo {
     private LocalDate prazoEntrega;
     private LocalDate dataDevolucaoReal;
     private boolean renovado = false;
+    private EstadoEmprestimo estadoEmprestimo;
 
     public Emprestimo(Leitor leitor, Item item) {
         this.leitor = leitor;
@@ -18,7 +19,8 @@ public class Emprestimo {
 
         this.prazoEntrega = LocalDate.now().plusDays(item.getPrazoDeEntrega());
 
-        this.dataDevolucaoReal = null;
+        this.dataDevolucaoReal = LocalDate.now().plusDays(3);
+        setEstadoEmprestimo();
     }
 
 
@@ -29,6 +31,17 @@ public class Emprestimo {
         } else {
             return dataEmprestimo.plusDays(item.getPrazoDeEntrega());
         }
+    }
+
+    public void setEstadoEmprestimo(){
+        if(prazoEntrega.isAfter(dataDevolucaoReal)){
+            estadoEmprestimo = EstadoEmprestimo.ATRASDO;
+        } else if(prazoEntrega.isBefore(dataDevolucaoReal)){
+            estadoEmprestimo = EstadoEmprestimo.EMDIA;
+        } else {
+            estadoEmprestimo = EstadoEmprestimo.PODERENOVAR;
+        }
+
     }
 
     public double calcularMulta() {
@@ -62,8 +75,16 @@ public class Emprestimo {
     }
 
     public void imprimirExtratoEmprestimo(){
+        System.out.println("Leitor: " + getLeitor().getNome());
+        System.out.println("Livro: " + getItem().getTitulo());
+        System.out.println("Data de entrega: " + prazoEntrega);
+        System.out.println("Item ja renovado: " + isRenovado());
+        System.out.println("Estado do emprestimo: " + estadoEmprestimo);
+    }
 
-        System.out.println("Leitor: " + leitor);
+
+    public void setDataDevolucaoReal(LocalDate dataDevolucaoReal) {
+        this.dataDevolucaoReal = dataDevolucaoReal;
     }
 
     public Leitor getLeitor() {

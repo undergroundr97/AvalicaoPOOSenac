@@ -34,6 +34,9 @@ public class Main {
 					System.out.println("Realizando emprestimos: ");
 					Emprestimo emprestimo = new Emprestimo(leitor1, (Livro) livro1);
 					Emprestimo emprestimo2 = new Emprestimo(leitor2, (Livro) livro3);
+
+					menuTeste();
+					opcaoCliente = scanner.nextInt();
 				}
 				case 2 ->{
 					System.out.println("Adicionando 3 livros ao leitor comum andrey");
@@ -54,6 +57,8 @@ public class Main {
 					Item livro4 = new Livro("A volta dos atrasados", "1235", LocalDate.now(), unidade1,
 							FaixaEtaria.JUVENIL);
 					andrey.adicionarLivro(livro4);
+					menuTeste();
+					opcaoCliente = scanner.nextInt();
 
 				}
 				case 3 -> {
@@ -70,6 +75,8 @@ public class Main {
 					emprestimo = new Emprestimo(leitorPremium, livro1);
 					System.out.println("O emprestimo para o leitor premium: " + emprestimo.calcularPrazoInicial());
 
+					menuTeste();
+					opcaoCliente = scanner.nextInt();
 				}
 				case 4 ->{
 
@@ -81,6 +88,8 @@ public class Main {
 					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroInfantil);
 
 
+					menuTeste();
+					opcaoCliente = scanner.nextInt();
 				}
 				case 5-> {
 
@@ -90,6 +99,8 @@ public class Main {
 							FaixaEtaria.LIVRE);
 					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroLivre);
 					emprestimo.finalizarEmprestimo(LocalDate.now().plusDays(100));
+					menuTeste();
+					opcaoCliente = scanner.nextInt();
 				}
 				case 6 ->{
 					Unidade unidade1 = new Unidade(1);
@@ -99,10 +110,28 @@ public class Main {
 					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroLivre);
 
 					emprestimo.renovarEmprestimo();
+					menuTeste();
+					opcaoCliente = scanner.nextInt();
 
 				}
 				case 7 ->{
 
+					Unidade unidade1 = new Unidade(1);
+					Leitor leitorPremium = new LeitorPremium("andrey", 30);
+					Item livroLivre = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
+							FaixaEtaria.LIVRE);
+					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroLivre);
+
+					emprestimo.imprimirExtratoEmprestimo();
+
+					Emprestimo emprestimo1 = new Emprestimo(leitorPremium, livroLivre);
+					emprestimo1.setDataDevolucaoReal(LocalDate.now().minusDays(2));
+					emprestimo1.imprimirExtratoEmprestimo();
+
+					Emprestimo emprestimo2 = new Emprestimo(leitorPremium, livroLivre);
+					emprestimo2.setEstadoEmprestimo();
+					menuTeste();
+					opcaoCliente = scanner.nextInt();
 				}
 
 
