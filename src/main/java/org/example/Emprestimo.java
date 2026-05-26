@@ -14,8 +14,16 @@ public class Emprestimo {
         this.leitor = leitor;
         this.item = item;
         this.dataEmprestimo = LocalDate.now();
-        this.prazoEntrega = prazoEntrega();
+        this.prazoEntrega = calcularPrazoInicial();
         this.dataDevolucaoReal = null;
+    }
+
+    private LocalDate calcularPrazoInicial() {
+        if (leitor instanceof LeitorPremium) {
+            return dataEmprestimo.plusDays(item.getPrazoDeEntrega() + (item.getPrazoDeEntrega() / 2));
+        } else {
+            return dataEmprestimo.plusDays(item.getPrazoDeEntrega());
+        }
     }
 
     public double calcularMulta() {
@@ -25,7 +33,6 @@ public class Emprestimo {
         long diasAtraso = ChronoUnit.DAYS.between(prazoEntrega, dataDevolucaoReal);
         return diasAtraso * 1.5;
     }
-
 
     public void renovarEmprestimo(LocalDate novoPrazo) {
         if (dataDevolucaoReal != null) {
@@ -52,6 +59,11 @@ public class Emprestimo {
         }
     }
 
-    public Leitor getLeitor() { return leitor; }
-    public Item getItem() { return item; }
+    public Leitor getLeitor() {
+        return leitor;
+    }
+
+    public Item getItem() {
+        return item;
+    }
 }
