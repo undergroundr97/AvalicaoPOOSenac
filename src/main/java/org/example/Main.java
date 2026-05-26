@@ -128,7 +128,22 @@ public class Main {
 					Item livroLivre = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.LIVRE);
 					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroLivre);
-					emprestimo.finalizarEmprestimo(LocalDate.now().plusDays(100));
+					System.out.println("Data hoje: " + LocalDate.now().format(Emprestimo.formatter));
+					System.out.println("Data entrega maximo do Item: " + livroLivre.getClass().getSimpleName() + ", prazo maximo: " + livroLivre.getPrazoDeEntrega() + " dias.");
+					System.out.println("Data esperada para devolucao emprestimo: " + emprestimo.getPrazoEntrega().format(Emprestimo.formatter));
+					System.out.println("Devolucao para entregar 5 dias após emprestimo: " + LocalDate.now().plusDays(5).format(Emprestimo.formatter));
+					emprestimo.finalizarEmprestimo(LocalDate.now().plusDays(5));
+					System.out.println("----------------------------------");
+
+					Item HQLivre = new HQ("A ida dos que irao", "1333", LocalDate.now(), unidade1, FaixaEtaria.LIVRE);
+					Emprestimo emprestimo1 = new Emprestimo(leitorPremium, HQLivre);
+
+					System.out.println("Data entrega maximo do Item: " + HQLivre.getClass().getSimpleName() + ", prazo maximo: " + HQLivre.getPrazoDeEntrega() + " dias.");
+					System.out.println("Data esperada para devolucao emprestimo: " + emprestimo1.getPrazoEntrega().format(Emprestimo.formatter));
+					System.out.println("Entregar 10 apos a data limite do emprestimo: " + emprestimo1.getPrazoEntrega().plusDays(10).format(Emprestimo.formatter) );
+					emprestimo1.finalizarEmprestimo(emprestimo1.getPrazoEntrega().plusDays(10));
+
+
 					menuTeste();
 					opcaoCliente = scanner.nextInt();
 				}

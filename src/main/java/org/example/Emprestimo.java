@@ -64,6 +64,8 @@ public class Emprestimo {
             return 0.0;
         }
         long diasAtraso = ChronoUnit.DAYS.between(prazoEntrega, dataDevolucaoReal);
+		System.out.println(ChronoUnit.DAYS.between(prazoEntrega, dataDevolucaoReal));
+		System.out.println(diasAtraso);
         return diasAtraso * 1.5;
     }
 
@@ -118,4 +120,8 @@ public class Emprestimo {
     public boolean isRenovado() {
         return renovado;
     }
+
+	public LocalDate getPrazoEntrega() {
+		return prazoEntrega;
+	}
 }
