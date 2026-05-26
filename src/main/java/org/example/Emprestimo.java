@@ -1,9 +1,12 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Emprestimo {
+	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     private Leitor leitor;
     private Item item;
     private LocalDate dataEmprestimo;
@@ -21,7 +24,7 @@ public class Emprestimo {
 
         this.dataDevolucaoReal = LocalDate.now().plusDays(3);
         setEstadoEmprestimo();
-		this.dataDevolucaoReal = null;
+
     }
 
 
@@ -78,7 +81,7 @@ public class Emprestimo {
     public void imprimirExtratoEmprestimo(){
         System.out.println("Leitor: " + getLeitor().getNome());
         System.out.println("Livro: " + getItem().getTitulo());
-        System.out.println("Data de entrega: " + prazoEntrega);
+        System.out.println("Data de entrega: " + prazoEntrega.format(formatter));
         System.out.println("Item ja renovado: " + isRenovado());
         System.out.println("Estado do emprestimo: " + estadoEmprestimo);
     }

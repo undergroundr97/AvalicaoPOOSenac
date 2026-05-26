@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -17,7 +18,6 @@ public class Main {
 				case 1 -> {
 					System.out.println("Criando duas unidades");
 					Unidade unidade1 = new Unidade(1);
-					Unidade unidade2 = new Unidade(2);
 					System.out.println("Criando quatro livros");
 					Item livro1 = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.LIVRE);
@@ -34,6 +34,12 @@ public class Main {
 					System.out.println("Realizando emprestimos: ");
 					Emprestimo emprestimo = new Emprestimo(leitor1,livro1);
 					Emprestimo emprestimo2 = new Emprestimo(leitor2, livro3);
+
+					System.out.println("Exibindo resumo: ");
+					emprestimo.imprimirExtratoEmprestimo();
+					System.out.println("----------------------------------");
+					emprestimo2.imprimirExtratoEmprestimo();
+					System.out.println("----------------------------------");
 
 					menuTeste();
 					opcaoCliente = scanner.nextInt();
