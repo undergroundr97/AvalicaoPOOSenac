@@ -1,6 +1,5 @@
 package org.example;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -23,17 +22,18 @@ public class Main {
 							FaixaEtaria.LIVRE);
 					Item livro2 = new Revista("A volta dos irão", "1232", LocalDate.now(), unidade1,
 							FaixaEtaria.ADULTO);
-					Item livro3 = new HQ("A volta dos que ja foram", "1233", LocalDate.now(), unidade1,
+					Item livro3 = new HQ("A volta dos que ja foram - versao infantil", "1233", LocalDate.now(), unidade1,
 							FaixaEtaria.INFANTIL);
 					Item livro4 = new Livro("A volta dos atrasados", "1235", LocalDate.now(), unidade1,
 							FaixaEtaria.JUVENIL);
 					System.out.println("Criando dois leitores");
-					Leitor leitor1 = new LeitorComum("Andrey", 15);
+
+					Leitor leitorInfatil = new LeitorComum("Andrey", 10);
 					Leitor leitor2 = new LeitorPremium("Cesar", 20);
 
 					System.out.println("Realizando emprestimos: ");
-					Emprestimo emprestimo = new Emprestimo(leitor1,livro1);
-					Emprestimo emprestimo2 = new Emprestimo(leitor2, livro3);
+					Emprestimo emprestimo = new Emprestimo(leitorInfatil, livro3);
+					Emprestimo emprestimo2 = new Emprestimo(leitor2, livro2);
 
 					System.out.println("Exibindo resumo: ");
 					emprestimo.imprimirExtratoEmprestimo();
@@ -50,7 +50,7 @@ public class Main {
 
 					Item livro1 = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.LIVRE);
-					Item livro2 = new Revista("A volta dos irão", "1232", LocalDate.now(), unidade1,
+					Item livro2 = new Revista("A volta dos  que irao", "1232", LocalDate.now(), unidade1,
 							FaixaEtaria.ADULTO);
 					Item livro3 = new HQ("A volta dos que ja foram", "1233", LocalDate.now(), unidade1,
 							FaixaEtaria.INFANTIL);
@@ -81,7 +81,7 @@ public class Main {
 					Unidade unidade1 = new Unidade(1);
 					Leitor leitorPremium = new LeitorComum("andrey", 30);
 					Leitor leitorComum = new LeitorPremium("luiz", 12);
-					Item livro1 = new Livro("A volta dos que nao foram 2 - ", "1234", LocalDate.now(), unidade1,
+					Item livro1 = new Livro("A volta dos que nao foram 2", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.LIVRE);
 
 					Emprestimo emprestimo = new Emprestimo(leitorComum, livro1);
@@ -99,12 +99,24 @@ public class Main {
 				case 4 ->{
 
 					Unidade unidade1 = new Unidade(1);
-					Leitor leitorPremium = new LeitorPremium("andrey", 30);
-					Leitor leitorComum = new LeitorPremium("luiz", 12);
+					Leitor leitorAdulto = new LeitorPremium("andrey", 30);
+//
 					Item livroInfantil = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.INFANTIL);
-					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroInfantil);
 
+					System.out.println("Tentando emprestar o livro: " + livroInfantil.getTitulo() + ", Faixa etaria: " + livroInfantil.getFaixaEtaria()
+					+ "\nPara o leitor: " + leitorAdulto.getClass().getSimpleName() + " - " + leitorAdulto.getNome() + " de idade: " + leitorAdulto.getIdade()
+					+ " faixa etaria: " + leitorAdulto.getFaixaEtaria());
+					Emprestimo emprestimo = new Emprestimo(leitorAdulto, livroInfantil);
+					System.out.println();
+
+					Leitor leitorInfantil = new LeitorPremium("cesar", 10);
+					Item livroAdulto = new Livro("A volta dos que já foram",  "5555", LocalDate.now(), unidade1, FaixaEtaria.ADULTO);
+					System.out.println("Tentando emprestar o livro: " + livroAdulto.getTitulo() + ", Faixa etaria: " + livroAdulto.getFaixaEtaria()
+							+ "\nPara o leitor: " + leitorInfantil.getClass().getSimpleName() + " - " + leitorInfantil.getNome() + " de idade: " + leitorInfantil.getIdade()
+							+ " faixa etaria: " + leitorInfantil.getFaixaEtaria());
+					Emprestimo emprestimo2 = new Emprestimo(leitorInfantil, livroAdulto);
+					System.out.println();
 
 					menuTeste();
 					opcaoCliente = scanner.nextInt();

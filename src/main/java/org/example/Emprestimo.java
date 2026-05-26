@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -16,12 +17,16 @@ public class Emprestimo {
     private EstadoEmprestimo estadoEmprestimo;
 
     public Emprestimo(Leitor leitor, Item item) {
-        this.leitor = leitor;
-        this.item = item;
-        this.dataEmprestimo = LocalDate.now();
+		if(verificarFaixaEtaria(leitor, item)){
+			this.leitor = leitor;
+			this.item = item;
+			this.dataEmprestimo = LocalDate.now();
 
-        this.prazoEntrega = LocalDate.now().plusDays(item.getPrazoDeEntrega());
-        setEstadoEmprestimo();
+			this.prazoEntrega = LocalDate.now().plusDays(item.getPrazoDeEntrega());
+			setEstadoEmprestimo();
+		} else {
+			System.out.println("Nao e possivel realizar emprestimo!");
+		}
     }
 
 
@@ -34,13 +39,24 @@ public class Emprestimo {
         }
     }
 
+	public boolean verificarFaixaEtaria(Leitor leitor, Item item){
+		if(item.getFaixaEtaria().equals(FaixaEtaria.ADULTO) && !leitor.getFaixaEtaria().equals(FaixaEtaria.ADULTO)){
+			System.out.println("Não é possivel emprestar um livro adulto para menores.");
+			return false;
+		} else if (item.getFaixaEtaria().equals(FaixaEtaria.INFANTIL) && !leitor.getFaixaEtaria().equals(FaixaEtaria.INFANTIL)){
+			System.out.println("O Item esta fora da faixa etaria do adulto");
+			return false;
+		} else {
+			return true;
+		}
+	}
+
     public void setEstadoEmprestimo(){
         if(!(dataDevolucaoReal == null) && dataDevolucaoReal.isAfter(prazoEntrega)){
             estadoEmprestimo = EstadoEmprestimo.ATRASDO;
         } else {
 			estadoEmprestimo = EstadoEmprestimo.EMDIA;
 		}
-
     }
 
     public double calcularMulta() {

@@ -41,6 +41,14 @@ public abstract class Leitor {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+	public FaixaEtaria getFaixaEtaria() {
+		return faixaEtaria;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
 }
 
 
