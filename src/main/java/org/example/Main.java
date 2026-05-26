@@ -56,6 +56,9 @@ public class Main {
 					andrey.adicionarLivro(livro4);
 
 				}
+				case 3 -> {
+
+				}
 			}
 		} while (opcaoCliente != 0);
 	}

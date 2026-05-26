@@ -15,7 +15,7 @@ public class Emprestimo {
         this.item = livro;
         this.dataEmprestimo = LocalDate.now();
 
-        this.prazoEntrega = prazoEntrega();
+        this.prazoEntrega = LocalDate.now().plusDays(livro.getPrazoDeEntrega());
         this.dataDevolucaoReal = null;
     }
 
