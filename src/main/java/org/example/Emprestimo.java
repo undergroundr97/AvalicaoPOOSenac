@@ -31,7 +31,7 @@ public class Emprestimo {
             return 0.0;
         }
         long diasAtraso = ChronoUnit.DAYS.between(prazoEntrega, dataDevolucaoReal);
-        return diasAtraso * 1.5;
+        return diasAtraso * 1.5; //multa por dia ao atrasar a entrega
     }
 
     public void renovarEmprestimo(LocalDate novoPrazo) {
@@ -44,13 +44,17 @@ public class Emprestimo {
             System.out.println("Erro: Nao é possivel renovar um livro em atraso.");
             return;
         }
-        this.prazoEntrega = novoPrazo;
-        System.out.println("Renovado com sucesso!");
+        if (!novoPrazo.isAfter(this.prazoEntrega)) {
+            System.out.println("Erro: O novo prazo deve ser posterior ao prazo atual.");
+            return;
+        }else {
+            this.prazoEntrega = novoPrazo;
+            System.out.println("Renovado com sucesso!");
+        }
     }
 
     public void finalizarEmprestimo() {
         this.dataDevolucaoReal = LocalDate.now();
-        this.item.setDisponivel(true);
         double valorMulta = calcularMulta();
         if (valorMulta == 0) {
             System.out.println("Livro devolvido no prazo. Sem multa.");
