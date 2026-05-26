@@ -39,8 +39,8 @@ public class Main {
 					opcaoCliente = scanner.nextInt();
 				}
 				case 2 ->{
-					System.out.println("Adicionando 3 livros ao leitor comum andrey");
 					Unidade unidade1 = new Unidade(2);
+					System.out.println("Adicionando 3 livros ao leitor comum andrey");
 
 					Item livro1 = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.LIVRE);
@@ -52,11 +52,19 @@ public class Main {
 					andrey.adicionarLivro(livro1);
 					andrey.adicionarLivro(livro2);
 					andrey.adicionarLivro(livro3);
-					System.out.println("Tenta adicionar um quarto livro");
+
+					System.out.println("Tamanho da lista do leitor comum:  ");
+					System.out.println(andrey.getItensEmPosse().size());
+					System.out.println("Itens em posse do leitor comum: ");
+					andrey.getItensEmPosse().forEach( item -> System.out.println(item.getTitulo()));
 
 					Item livro4 = new Livro("A volta dos atrasados", "1235", LocalDate.now(), unidade1,
 							FaixaEtaria.JUVENIL);
+					System.out.println("Tenta adicionar um quarto livro a " + andrey.getNome());
 					andrey.adicionarLivro(livro4);
+					System.out.println("Itens em posse de andrey: ");
+					andrey.getItensEmPosse().forEach( item -> System.out.println(item.getTitulo()));
+
 					menuTeste();
 					opcaoCliente = scanner.nextInt();
 
@@ -139,13 +147,13 @@ public class Main {
 		} while (opcaoCliente != 0);
 	}
 
-			static void menuTeste () {
-				System.out.println("CENARIO 1 - CADASTRAR E EMPRESTIMO SIMPLES");
-				System.out.println("CENARIO 2 - LIMITE EMRESTIMO ATINGIDO");
-				System.out.println("CENARIO 3 - PRAZO DIFERENCIADO PARA PREMIUM");
-				System.out.println("CENARIO 4 - RESTRICAO FAIXA ETARIA");
-				System.out.println("CENARIO 5 - DEVOLUCAO COM ATRASO");
-				System.out.println("CENARIO 6 - RENOVACAO");
-				System.out.println("CENARIO 7 - EXTRATO EMPRESTIMO");
-			}
+	static void menuTeste () {
+		System.out.println("CENARIO 1 - CADASTRAR E EMPRESTIMO SIMPLES");
+		System.out.println("CENARIO 2 - LIMITE EMRESTIMO ATINGIDO");
+		System.out.println("CENARIO 3 - PRAZO DIFERENCIADO PARA PREMIUM");
+		System.out.println("CENARIO 4 - RESTRICAO FAIXA ETARIA");
+		System.out.println("CENARIO 5 - DEVOLUCAO COM ATRASO");
+		System.out.println("CENARIO 6 - RENOVACAO");
+		System.out.println("CENARIO 7 - EXTRATO EMPRESTIMO");
+	}
 }
