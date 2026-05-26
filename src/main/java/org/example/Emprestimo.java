@@ -21,6 +21,7 @@ public class Emprestimo {
 
         this.dataDevolucaoReal = LocalDate.now().plusDays(3);
         setEstadoEmprestimo();
+		this.dataDevolucaoReal = null;
     }
 
 

@@ -32,8 +32,8 @@ public class Main {
 					Leitor leitor2 = new LeitorPremium("Cesar", 20);
 
 					System.out.println("Realizando emprestimos: ");
-					Emprestimo emprestimo = new Emprestimo(leitor1, (Livro) livro1);
-					Emprestimo emprestimo2 = new Emprestimo(leitor2, (Livro) livro3);
+					Emprestimo emprestimo = new Emprestimo(leitor1,livro1);
+					Emprestimo emprestimo2 = new Emprestimo(leitor2, livro3);
 
 					menuTeste();
 					opcaoCliente = scanner.nextInt();
@@ -63,12 +63,12 @@ public class Main {
 				}
 				case 3 -> {
 					Unidade unidade1 = new Unidade(1);
-					Leitor leitorPremium = new LeitorPremium("andrey", 30);
+					Leitor leitorPremium = new LeitorComum("andrey", 30);
 					Leitor leitorComum = new LeitorPremium("luiz", 12);
 					Item livro1 = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.LIVRE);
 
-					Emprestimo emprestimo = new Emprestimo(leitorComum, (Livro) livro1);
+					Emprestimo emprestimo = new Emprestimo(leitorComum, livro1);
 
 					System.out.println("O emprestimo para o leitor comum: " + emprestimo.calcularPrazoInicial());
 

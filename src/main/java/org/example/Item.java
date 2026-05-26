@@ -23,7 +23,9 @@ public abstract class Item {
         return titulo;
     }
 
-    public abstract int getPrazoDeEntrega();
+    public  int getPrazoDeEntrega(){
+		return prazoDeEntrega;
+	}
 
     public FaixaEtaria getFaixaEtaria() {
         return faixaEtaria;
