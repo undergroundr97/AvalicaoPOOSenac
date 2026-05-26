@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Livro extends Item{
     private final int prazoDeEntrega=14;
+
     @Override
     public int getPrazoDeEntrega() {
         return prazoDeEntrega;
