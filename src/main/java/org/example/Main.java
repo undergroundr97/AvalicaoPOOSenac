@@ -8,8 +8,8 @@ public class Main {
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Bem vindo ao leitor livre!");
-
 		menuTeste();
+
 		System.out.println("Digite uma opcao: ");
 		int opcaoCliente = scanner.nextInt();
 		do {
@@ -26,8 +26,9 @@ public class Main {
 							FaixaEtaria.INFANTIL);
 					Item livro4 = new Livro("A volta dos atrasados", "1235", LocalDate.now(), unidade1,
 							FaixaEtaria.JUVENIL);
-					System.out.println("Criando dois leitores");
 
+
+					System.out.println("Criando dois leitores");
 					Leitor leitorInfatil = new LeitorComum("Andrey", 10);
 					Leitor leitor2 = new LeitorPremium("Cesar", 20);
 
@@ -105,8 +106,8 @@ public class Main {
 							FaixaEtaria.INFANTIL);
 
 					System.out.println("Tentando emprestar o livro: " + livroInfantil.getTitulo() + ", Faixa etaria: " + livroInfantil.getFaixaEtaria()
-					+ "\nPara o leitor: " + leitorAdulto.getClass().getSimpleName() + " - " + leitorAdulto.getNome() + " de idade: " + leitorAdulto.getIdade()
-					+ " faixa etaria: " + leitorAdulto.getFaixaEtaria());
+							+ "\nPara o leitor: " + leitorAdulto.getClass().getSimpleName() + " - " + leitorAdulto.getNome() + " de idade: " + leitorAdulto.getIdade()
+							+ " faixa etaria: " + leitorAdulto.getFaixaEtaria());
 					Emprestimo emprestimo = new Emprestimo(leitorAdulto, livroInfantil);
 					System.out.println();
 
@@ -214,7 +215,7 @@ public class Main {
 		} while (opcaoCliente != 0);
 	}
 
-	static void menuTeste () {
+	static void menuTeste() {
 		System.out.println("CENARIO 1 - CADASTRAR E EMPRESTIMO SIMPLES");
 		System.out.println("CENARIO 2 - LIMITE EMRESTIMO ATINGIDO");
 		System.out.println("CENARIO 3 - PRAZO DIFERENCIADO PARA PREMIUM");
@@ -223,4 +224,9 @@ public class Main {
 		System.out.println("CENARIO 6 - RENOVACAO");
 		System.out.println("CENARIO 7 - EXTRATO EMPRESTIMO");
 	}
+
+	public static void imprimirSeparador(){
+		System.out.println("----------------------------------");
+	}
+
 }
