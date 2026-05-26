@@ -30,8 +30,7 @@ public class Emprestimo {
 			this.item = item;
 			this.dataEmprestimo = LocalDate.now();
 
-			this.prazoEntrega = LocalDate.now().plusDays(item.getPrazoDeEntrega());
-			setEstadoEmprestimo();
+			this.prazoEntrega = calcularPrazoInicial();
 		} else {
 			System.out.println("Nao e possivel realizar emprestimo!");
 		}
@@ -59,7 +58,7 @@ public class Emprestimo {
 
 	public void setEstadoEmprestimo(){
 		if(!(dataDevolucaoReal == null) && dataDevolucaoReal.isAfter(prazoEntrega)){
-			estadoEmprestimo = EstadoEmprestimo.ATRASDO;
+			estadoEmprestimo = EstadoEmprestimo.ATRASADO;
 		} else if(!renovado){
 			estadoEmprestimo = EstadoEmprestimo.PODERENOVAR;
 		} else {
@@ -84,6 +83,7 @@ public class Emprestimo {
 			System.out.println("Item ja foi renovado! Nao e possivel renovar.");
 		} else {
 			renovado = true;
+			setEstadoEmprestimo();
 			System.out.println("Item sera renovado para: " + prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega()).format(formatter));
 			prazoEntrega = prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega());
 		}
@@ -92,6 +92,7 @@ public class Emprestimo {
 
 	public void finalizarEmprestimo(LocalDate date) {
 		this.dataDevolucaoReal = date;
+		setEstadoEmprestimo();
 		double valorMulta = calcularMulta();
 		if (valorMulta == 0) {
 			System.out.println("Livro devolvido no prazo. Sem multa.");
