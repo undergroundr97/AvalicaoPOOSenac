@@ -21,10 +21,7 @@ public class Emprestimo {
         this.dataEmprestimo = LocalDate.now();
 
         this.prazoEntrega = LocalDate.now().plusDays(item.getPrazoDeEntrega());
-
-        this.dataDevolucaoReal = LocalDate.now().plusDays(3);
         setEstadoEmprestimo();
-
     }
 
 
@@ -38,13 +35,11 @@ public class Emprestimo {
     }
 
     public void setEstadoEmprestimo(){
-        if(prazoEntrega.isAfter(dataDevolucaoReal)){
+        if(!(dataDevolucaoReal == null) && dataDevolucaoReal.isAfter(prazoEntrega)){
             estadoEmprestimo = EstadoEmprestimo.ATRASDO;
-        } else if(prazoEntrega.isBefore(dataDevolucaoReal)){
-            estadoEmprestimo = EstadoEmprestimo.EMDIA;
         } else {
-            estadoEmprestimo = EstadoEmprestimo.PODERENOVAR;
-        }
+			estadoEmprestimo = EstadoEmprestimo.EMDIA;
+		}
 
     }
 
@@ -64,6 +59,7 @@ public class Emprestimo {
         } else {
             renovado = true;
             System.out.println("Item sera renovado para: " + prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega()));
+			prazoEntrega = prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega());
         }
 
     }
@@ -79,9 +75,13 @@ public class Emprestimo {
     }
 
     public void imprimirExtratoEmprestimo(){
+		System.out.println("Data hoje: " + LocalDate.now().format(formatter));
         System.out.println("Leitor: " + getLeitor().getNome());
         System.out.println("Livro: " + getItem().getTitulo());
-        System.out.println("Data de entrega: " + prazoEntrega.format(formatter));
+        System.out.println("Prazo para entrega: " + prazoEntrega.format(formatter));
+		if( !(dataDevolucaoReal == null)) {
+			System.out.println("Dia da entrega: " + dataDevolucaoReal.format(formatter));
+		}
         System.out.println("Item ja renovado: " + isRenovado());
         System.out.println("Estado do emprestimo: " + estadoEmprestimo);
     }

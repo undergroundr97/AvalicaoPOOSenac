@@ -55,6 +55,8 @@ public class Main {
 					Item livro3 = new HQ("A volta dos que ja foram", "1233", LocalDate.now(), unidade1,
 							FaixaEtaria.INFANTIL);
 					Leitor andrey = new LeitorComum("andrey", 30);
+					System.out.println(andrey.getNome() + " é um leitor: " + andrey.getClass().getSimpleName());
+
 					andrey.adicionarLivro(livro1);
 					andrey.adicionarLivro(livro2);
 					andrey.adicionarLivro(livro3);
@@ -79,15 +81,17 @@ public class Main {
 					Unidade unidade1 = new Unidade(1);
 					Leitor leitorPremium = new LeitorComum("andrey", 30);
 					Leitor leitorComum = new LeitorPremium("luiz", 12);
-					Item livro1 = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
+					Item livro1 = new Livro("A volta dos que nao foram 2 - ", "1234", LocalDate.now(), unidade1,
 							FaixaEtaria.LIVRE);
 
 					Emprestimo emprestimo = new Emprestimo(leitorComum, livro1);
 
-					System.out.println("O emprestimo para o leitor comum: " + emprestimo.calcularPrazoInicial());
+					System.out.println("O emprestimo para o " + emprestimo.getLeitor().getClass().getSimpleName() + ", do livro: " + livro1.getTitulo() +
+							": " +emprestimo.calcularPrazoInicial().format(Emprestimo.formatter));
 
 					emprestimo = new Emprestimo(leitorPremium, livro1);
-					System.out.println("O emprestimo para o leitor premium: " + emprestimo.calcularPrazoInicial());
+					System.out.println("O emprestimo para o " + emprestimo.getLeitor().getClass().getSimpleName() + ", do livro: " + livro1.getTitulo() +
+							": " +emprestimo.calcularPrazoInicial().format(Emprestimo.formatter));
 
 					menuTeste();
 					opcaoCliente = scanner.nextInt();
