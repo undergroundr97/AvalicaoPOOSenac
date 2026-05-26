@@ -1,4 +1,4 @@
-package org.example.InputValidator;
+package org.leitorlivre.inputvalidator;
 
 import java.util.Scanner;
 

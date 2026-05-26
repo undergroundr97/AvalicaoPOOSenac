@@ -1,7 +1,7 @@
-package org.example.Items;
+package org.leitorlivre.itens;
 
-import org.example.Enum.FaixaEtaria;
-import org.example.Unidade.Unidade;
+import org.leitorlivre.enums.FaixaEtaria;
+import org.leitorlivre.unidade.Unidade;
 
 import java.time.LocalDate;
 

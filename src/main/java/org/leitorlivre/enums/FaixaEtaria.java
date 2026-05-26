@@ -1,4 +1,4 @@
-package org.example.Enum;
+package org.leitorlivre.enums;
 
 public enum FaixaEtaria {
 

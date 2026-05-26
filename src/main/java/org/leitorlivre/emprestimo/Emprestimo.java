@@ -1,12 +1,12 @@
-package org.example.Emprestimo;
+package org.leitorlivre.emprestimo;
 
-import org.example.Enum.EstadoEmprestimo;
-import org.example.Enum.FaixaEtaria;
-import org.example.Items.HQ;
-import org.example.Items.Item;
-import org.example.Items.Revista;
-import org.example.Leitor.Leitor;
-import org.example.Leitor.LeitorPremium;
+import org.leitorlivre.enums.EstadoEmprestimo;
+import org.leitorlivre.enums.FaixaEtaria;
+import org.leitorlivre.itens.HQ;
+import org.leitorlivre.itens.Item;
+import org.leitorlivre.itens.Revista;
+import org.leitorlivre.leitor.Leitor;
+import org.leitorlivre.leitor.LeitorPremium;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

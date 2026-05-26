@@ -1,4 +1,4 @@
-package org.example.Unidade;
+package org.leitorlivre.unidade;
 
 public class Unidade {
 

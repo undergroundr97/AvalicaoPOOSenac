@@ -1,7 +1,7 @@
-package org.example.Leitor;
+package org.leitorlivre.leitor;
 
-import org.example.Enum.FaixaEtaria;
-import org.example.Items.Item;
+import org.leitorlivre.enums.FaixaEtaria;
+import org.leitorlivre.itens.Item;
 
 import java.util.ArrayList;
 

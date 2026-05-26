@@ -1,16 +1,16 @@
-package org.example;
+package org.leitorlivre;
 
-import org.example.Emprestimo.Emprestimo;
-import org.example.Enum.FaixaEtaria;
-import org.example.InputValidator.InputValidator;
-import org.example.Items.HQ;
-import org.example.Items.Item;
-import org.example.Items.Livro;
-import org.example.Items.Revista;
-import org.example.Leitor.Leitor;
-import org.example.Leitor.LeitorComum;
-import org.example.Leitor.LeitorPremium;
-import org.example.Unidade.Unidade;
+import org.leitorlivre.emprestimo.Emprestimo;
+import org.leitorlivre.enums.FaixaEtaria;
+import org.leitorlivre.inputvalidator.InputValidator;
+import org.leitorlivre.itens.HQ;
+import org.leitorlivre.itens.Item;
+import org.leitorlivre.itens.Livro;
+import org.leitorlivre.itens.Revista;
+import org.leitorlivre.leitor.Leitor;
+import org.leitorlivre.leitor.LeitorComum;
+import org.leitorlivre.leitor.LeitorPremium;
+import org.leitorlivre.unidade.Unidade;
 
 import java.time.LocalDate;
 import java.util.Scanner;

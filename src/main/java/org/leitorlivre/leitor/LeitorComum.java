@@ -1,7 +1,7 @@
-package org.example.Leitor;
+package org.leitorlivre.leitor;
 
 
-import org.example.Items.Item;
+import org.leitorlivre.itens.Item;
 
 public class LeitorComum extends Leitor {
 
