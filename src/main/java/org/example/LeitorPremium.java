@@ -5,7 +5,7 @@ public class LeitorPremium extends Leitor {
         super(nome, idade);
     }
 
-    public void adicionarLivro(Livro livro) {
+    public void adicionarLivro(Item livro) {
         if(getItensEmPosse().size() < 7) {
             getItensEmPosse().add(livro);
         } else {

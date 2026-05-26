@@ -73,6 +73,35 @@ public class Main {
 				}
 				case 4 ->{
 
+					Unidade unidade1 = new Unidade(1);
+					Leitor leitorPremium = new LeitorPremium("andrey", 30);
+					Leitor leitorComum = new LeitorPremium("luiz", 12);
+					Item livroInfantil = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
+							FaixaEtaria.INFANTIL);
+					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroInfantil);
+
+
+				}
+				case 5-> {
+
+					Unidade unidade1 = new Unidade(1);
+					Leitor leitorPremium = new LeitorPremium("andrey", 30);
+					Item livroLivre = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
+							FaixaEtaria.LIVRE);
+					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroLivre);
+					emprestimo.finalizarEmprestimo(LocalDate.now().plusDays(100));
+				}
+				case 6 ->{
+					Unidade unidade1 = new Unidade(1);
+					Leitor leitorPremium = new LeitorPremium("andrey", 30);
+					Item livroLivre = new Livro("A volta dos que nao foram", "1234", LocalDate.now(), unidade1,
+							FaixaEtaria.LIVRE);
+					Emprestimo emprestimo = new Emprestimo(leitorPremium, livroLivre);
+
+					emprestimo.renovarEmprestimo();
+
+				}
+				case 7 ->{
 
 				}
 

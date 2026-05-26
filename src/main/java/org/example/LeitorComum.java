@@ -7,7 +7,7 @@ public class LeitorComum extends Leitor {
     }
 
     @Override
-    public void adicionarLivro(Livro livro) {
+    public void adicionarLivro(Item livro) {
         if(getItensEmPosse().size() < 3) {
             getItensEmPosse().add(livro);
         } else {

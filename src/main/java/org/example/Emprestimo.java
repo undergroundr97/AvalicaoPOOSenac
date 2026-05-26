@@ -9,6 +9,7 @@ public class Emprestimo {
     private LocalDate dataEmprestimo;
     private LocalDate prazoEntrega;
     private LocalDate dataDevolucaoReal;
+    private boolean renovado = false;
 
     public Emprestimo(Leitor leitor, Item item) {
         this.leitor = leitor;
@@ -19,6 +20,8 @@ public class Emprestimo {
 
         this.dataDevolucaoReal = null;
     }
+
+
 
     public LocalDate calcularPrazoInicial() {
         if (leitor instanceof LeitorPremium) {
@@ -36,22 +39,20 @@ public class Emprestimo {
         return diasAtraso * 1.5;
     }
 
-    public void renovarEmprestimo(LocalDate novoPrazo) {
-        if (dataDevolucaoReal != null) {
-            System.out.println("Erro: Livro já devolvido.");
-            return;
+    public void renovarEmprestimo() {
+        if(item instanceof HQ){
+            System.out.println("Nao e possivel renovar revista");
+        } else if(isRenovado()) {
+            System.out.println("Item ja foi renovado!, nao e possivel renovar");
+        } else {
+            renovado = true;
+            System.out.println("Item sera renovado para: " + prazoEntrega.plusDays(item.getPrazoDeEntrega() + item.getPrazoDeEntrega()));
         }
 
-        if (LocalDate.now().isAfter(this.prazoEntrega)) {
-            System.out.println("Erro: Nao é possivel renovar um livro em atraso.");
-            return;
-        }
-        this.prazoEntrega = novoPrazo;
-        System.out.println("Renovado com sucesso!");
     }
 
-    public void finalizarEmprestimo() {
-        this.dataDevolucaoReal = LocalDate.now();
+    public void finalizarEmprestimo(LocalDate date) {
+        this.dataDevolucaoReal = date;
         double valorMulta = calcularMulta();
         if (valorMulta == 0) {
             System.out.println("Livro devolvido no prazo. Sem multa.");
@@ -60,11 +61,20 @@ public class Emprestimo {
         }
     }
 
+    public void imprimirExtratoEmprestimo(){
+
+        System.out.println("Leitor: " + leitor);
+    }
+
     public Leitor getLeitor() {
         return leitor;
     }
 
     public Item getItem() {
         return item;
+    }
+
+    public boolean isRenovado() {
+        return renovado;
     }
 }
