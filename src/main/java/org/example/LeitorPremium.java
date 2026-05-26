@@ -1,5 +1,7 @@
 package org.example;
 
+import java.time.LocalDate;
+
 public class LeitorPremium extends Leitor {
     public LeitorPremium(String nome, int idade) {
         super(nome, idade);

@@ -1,8 +1,5 @@
 package org.example;
 
-
-import java.time.LocalDate;
-
 import java.util.ArrayList;
 
 public abstract class Leitor {
@@ -10,14 +7,17 @@ public abstract class Leitor {
     private int idade;
     FaixaEtaria faixaEtaria;
 
-    private ArrayList <Item> itensEmPosse=  itensEmPosse = new ArrayList<>();
+    private ArrayList<Item> itensEmPosse;
 
-    public Leitor (String nome, int idade) {
+    public Leitor(String nome, int idade) {
         this.idade = idade;
+        this.nome = nome;
+        itensEmPosse = new ArrayList<>();
         setFaixaEtaria();
     }
 
     public abstract void adicionarLivro(Item livro);
+
 
     public ArrayList<Item> getItensEmPosse() {
         return itensEmPosse;
@@ -34,5 +34,13 @@ public abstract class Leitor {
             faixaEtaria = FaixaEtaria.LIVRE;
         }
     }
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
+
 
