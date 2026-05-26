@@ -27,6 +27,7 @@ public class Emprestimo {
         return diasAtraso * 1.5;
     }
 
+    
     public void renovarEmprestimo(LocalDate novoPrazo) {
         if (dataDevolucaoReal != null) {
             System.out.println("Erro: Livro já devolvido.");
