@@ -29,8 +29,8 @@ public class Emprestimo {
 			this.leitor = leitor;
 			this.item = item;
 			this.dataEmprestimo = LocalDate.now();
-
 			this.prazoEntrega = calcularPrazoInicial();
+			setEstadoEmprestimo();
 		} else {
 			System.out.println("Nao e possivel realizar emprestimo!");
 		}
